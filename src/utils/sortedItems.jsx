@@ -12,8 +12,7 @@ export default (sortKey,arryItems)=>{
      return b.price - a.price;
    }
  
-   
-});
+  });
  
    return a;
 }
