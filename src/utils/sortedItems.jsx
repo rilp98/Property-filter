@@ -1,4 +1,4 @@
-export default (sortKey,arryItems)=>{
+export default (sortKey,arryItems,filterKey)=>{
 
   const a = [...arryItems];
 
@@ -11,8 +11,7 @@ export default (sortKey,arryItems)=>{
    if(sortKey==='Hight-low'){
      return b.price - a.price;
    }
- 
+    
   });
- 
    return a;
 }

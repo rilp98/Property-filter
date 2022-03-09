@@ -5,29 +5,19 @@ import {Text,Flex,Box,Select,Grid, GridItem} from '@chakra-ui/react';
 import PRODUCTLIST from './ProductsData';
 import Product from './components/Product';
 import sortedItems from './utils/sortedItems';
-import filterItems from './utils/filterItems';
-
 function App() {
 
-  const [itemSort,setItemSort]=useState(PRODUCTLIST);
-  const [itemFilter,setItemFilter]=useState(PRODUCTLIST);
+  const [items,setItems]=useState(PRODUCTLIST);
 
-  const [valueSort,setValueSort] =useState('');
-  const [valueFilter,setValueFilter] =useState('');
-
+  const [value,setValue] =useState('');
 
   useEffect( ()=>{
-    setItemSort( sortedItems(valueSort,itemSort) );
-    setItemFilter( filterItems(valueFilter,itemFilter) );
-  },[valueSort,valueFilter]);
+    setItems( sortedItems(value,items) );
+  },[value]);
 
   const handleChangeSort = (event) => { 
-    setValueSort(event.target.value);
+    setValue(event.target.value);
   }
-  const handleChangeFilter = (event) => { 
-    setValueFilter(event.target.value);
-  }
-
  
   return (
     <Box height='100vh'>
@@ -36,34 +26,19 @@ function App() {
        <Select 
        placeholder='Select option' 
        width='200px' 
-       value={valueSort}
+       value={value}
        onChange={handleChangeSort}
        mr='110px'>
          <option value='Low-hight'>Low-hight</option>
          <option  value='Hight-low'>Hight-low</option>
        </Select>
-       
-       <Text mr='10px'>Filter</Text>
-       <Select 
-       placeholder='Select option' 
-       width='200px' 
-       value={valueFilter}
-       onChange={handleChangeFilter}
-       mr='110px'>
-         <option value='Cell phones'>Cell phones</option>
-         <option  value='Electronics'>Electronics</option>
-         <option  value='Video Games'>Video Games</option>
-       </Select>
-
        </Flex>
 
-       
-      
       <Flex justifyContent='center'>
 
-      <Grid gap={5} templateColumns='repeat(3, 1fr)' mt='20px'>
+      <Grid gap={5} templateColumns='repeat(3, 1fr)' my='40px'>
 
-      {itemSort.map( (item)=> 
+      {items.map( (item)=> 
       <GridItem key={item.id}>
        <Product 
        id={item.id} 
@@ -75,8 +50,12 @@ function App() {
       )}
 
       </Grid>
-
+      
       </Flex>
+
+      <Box height='100px' display='flex' alignItems='center' justifyContent='center' bg='purple.200' >
+        <Text> Made with ♥ by Paola Rossi </Text>
+      </Box>
 
     </Box>
   )
