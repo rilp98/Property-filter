@@ -5,6 +5,7 @@ import {Text,Flex,Box,Select,Grid, GridItem} from '@chakra-ui/react';
 import PRODUCTLIST from './ProductsData';
 import Product from './components/Product';
 import sortedItems from './utils/sortedItems';
+
 function App() {
 
   const [items,setItems]=useState(PRODUCTLIST);
@@ -26,6 +27,7 @@ function App() {
        <Select 
        placeholder='Select option' 
        width='200px' 
+       focusBorderColor='purple.500'
        value={value}
        onChange={handleChangeSort}
        mr='110px'>
@@ -36,7 +38,7 @@ function App() {
 
       <Flex justifyContent='center'>
 
-      <Grid gap={5} templateColumns='repeat(3, 1fr)' my='40px'>
+      <Grid gap={{base:3,lg:5}} templateColumns={{base:'repeat(1, 1fr)',md:'repeat(2, 1fr)',lg:'repeat(3, 1fr)'}} my='40px'>
 
       {items.map( (item)=> 
       <GridItem key={item.id}>
@@ -53,7 +55,7 @@ function App() {
       
       </Flex>
 
-      <Box height='100px' display='flex' alignItems='center' justifyContent='center' bg='purple.200' >
+      <Box height='100px' display='flex' alignItems='center' justifyContent='center' bg='purple.300' >
         <Text> Made with ♥ by Paola Rossi </Text>
       </Box>
 

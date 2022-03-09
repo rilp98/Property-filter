@@ -4,7 +4,7 @@ import {Box,Flex,Image,Text,} from '@chakra-ui/react';
 
 const Product = ({image,name,category,price})=>{
  return(
-  <Box bg='gray.100' width='348px' height='350px'>
+  <Box bg='purple.100' width='348px' height='350px'>
 
     <Flex justifyContent='center'>
     <Image src={image} alt='product'/>
