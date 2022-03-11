@@ -1,17 +1,17 @@
-export default (sortKey,arryItems,filterKey)=>{
+export default (sortKey,arryItems)=>{
 
-  const a = [...arryItems];
+    const a = [...arryItems];
 
-  a.sort((a,b)=>{
+    a.sort((a,b)=>{
  
-   if(sortKey==='Low-hight'){
-     return a.price - b.price;
-   }
+        if(sortKey==='Low-hight'){
+            return a.price - b.price;
+        }
  
-   if(sortKey==='Hight-low'){
-     return b.price - a.price;
-   }
+        if(sortKey==='Hight-low'){
+            return b.price - a.price;
+        }
     
-  });
-   return a;
-}
+    });
+    return a;
+};

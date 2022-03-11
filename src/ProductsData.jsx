@@ -12,4 +12,4 @@ export default [
     {id:4,image:tablet,name:'Samsung Galaxy Tab A7',category:'Electronics',price:100},
     {id:5,image:controller,name:'Sony Playstation Controller',category:'Video Games',price:30},
     {id:6,image:glasses,name:'Sony Glasses Virtual Reality',category:'Video Games',price:65}
-]
+];
